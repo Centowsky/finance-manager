@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+  <!-- Logo and name-->
+  <div class="flex items-center">
+    <h1 class="text-3xl font-bold text-red-500">Finance Manager</h1>
+  </div>
+
+  <!-- Menu -->
+  <div class="flex items-center space-x-4">
+    @if (isAuthenticated) { @for (item of linksAuth; track $index) {
+    <a [routerLink]="item.path" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition">
+      {{ item.label }}
+    </a>
+
+    }
+    <button (click)="logout()" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition">
+      Logout</button
+    >}@else { @for (item of linksGuest; track $index) {
+    <a [routerLink]="item.path" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition">
+      {{ item.label }}
+    </a>
+    } }
+  </div>
+</nav>
