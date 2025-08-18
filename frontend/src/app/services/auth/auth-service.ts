@@ -12,6 +12,10 @@ export class AuthService {
     return this.http.post('/api/register', { username, email, password });
   }
 
+  login(username: string, password: string): Observable<any> {
+    return this.http.post('/api/login', { username, password });
+  }
+
   isAuthenticated(): boolean {
     return true;
   }
