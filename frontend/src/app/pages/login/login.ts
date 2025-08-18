@@ -49,7 +49,8 @@ export class Login {
     const password = this.password.value ?? '';
 
     this.authService.login(username, password).subscribe({
-      next: () => {
+      next: (res) => {
+        this.authService.saveToken(res.token);
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {
