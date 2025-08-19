@@ -28,8 +28,6 @@ export class Navbar {
     { label: 'Register', path: '/register' },
   ];
 
-  isAuthenticated: boolean = true;
-
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
